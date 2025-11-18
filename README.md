@@ -113,3 +113,18 @@ Real-Time-Industry-Insight
 * Incorporation of real-time alert systems for sentiment shifts.
 
 
+
+
+
+🚧 Next Steps (Milestone 2 )
+Milestone 2 will focus on upgrading the intelligence and automation features:
+
+Integrate Real Google Trends data (replacing the mock data).
+
+Implement advanced NLP models (like BERT or VADER) to significantly improve sentiment accuracy.
+
+
+
+🧠 Tech Stack & EnvironmentCategoryTools / LibrariesProgramming LanguagePythonAPIs UsedWikipedia, NewsAPI, Alpha VantageCore LibrariesPandas, NumPy (Data Management)Visualization LibrariesPlotly, Matplotlib (Interactive Dashboards)NLP/SentimentTextBlob (Sentiment Analysis)Development EnvironmentGoogle Colab 
+
+Expand the dashboard with more KPIs (Key Performance Indicators) and advanced metric
