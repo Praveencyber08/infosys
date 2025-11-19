@@ -112,19 +112,213 @@ Real-Time-Industry-Insight
 * Deployment as a Flask or Streamlit web app for interactive insights.
 * Incorporation of real-time alert systems for sentiment shifts.
 
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+S-2
+
+🧠 1. Technologies & Languages Used
+🔷 Programming Language
+
+Python
+Used because it supports data science, APIs, AI/ML, and visualization.
+
+🔷 Libraries
+Library	Purpose
+requests	Fetch data from APIs (news, market data)
+pandas	Process/clean structured data
+numpy	Generate simulated trends, math operations
+wikipedia	Fetch company descriptions
+TextBlob	Sentiment analysis
+plotly	Interactive dashboard visualization
+datetime	Time-related operations
+🌐 2. APIs Used & Why
+🔹 1. NewsAPI
+
+Purpose:
+
+To fetch real-time news articles about each company.
+
+Titles from news are used for sentiment analysis.
+
+Data collected:
+
+Article titles
+
+Published date
+
+Description
+
+Used in:
+✔ Market sentiment
+✔ Dashboard news sentiment graph
+
+🔹 2. Alpha Vantage Stock API
+
+Purpose:
+To fetch historical stock price data (open, close, high, low).
+
+Used in:
+✔ Stock price graph
+✔ Comparison across 10+ companies
+
+🔹 3. Wikipedia API
+
+Purpose:
+To fetch company profile and summary automatically.
+
+Used in:
+✔ Company overview section at the bottom of dashboard
+
+🔹 4. (Optional) Twitter/X API – If Enabled in Future
+
+Purpose:
+
+Real-time tweets
+
+Social media sentiment
+
+Market hype detection
+
+Used for:
+✔ Detecting sudden sentiment changes
+✔ Trend prediction
+
+⚙️ 3. How the System Works (Step-by-Step)
+
+This is the exact workflow your code performs.
+
+Step 1 – Load Company List & Stock Symbols
+
+You added:
+
+Apple
+
+Google
+
+Amazon
+
+Meta
+
+Tesla
+
+Samsung
+
+NVIDIA
+
+IBM
+
+Intel
+
+Microsoft
+
+Each linked to its ticker symbol (AAPL, GOOGL, etc.).
+
+Step 2 – Fetch Wikipedia Summary
+
+For each company:
+
+wikipedia.summary(company, sentences=2)
 
 
+✔ Gives basic introduction
+✔ Displayed at bottom of dashboard
+
+Step 3 – Simulate Google Trends Data
+
+You generated 90 days of trend data using numpy:
+
+np.random.randint(30, 100)
 
 
-🚧 Next Steps (Milestone 2 )
-Milestone 2 will focus on upgrading the intelligence and automation features:
+✔ Graph shows company popularity
+✔ Works even without Google Trends API
 
-Integrate Real Google Trends data (replacing the mock data).
+Step 4 – Fetch News & Perform Sentiment Analysis
+(A) Get News Articles
+requests.get(newsapi_url)
 
-Implement advanced NLP models (like BERT or VADER) to significantly improve sentiment accuracy.
+(B) Sentiment Analysis
+
+Using TextBlob:
+
+TextBlob(headline).sentiment.polarity
 
 
+✔ Positive
+✔ Neutral
+✔ Negative
 
-🧠 Tech Stack & EnvironmentCategoryTools / LibrariesProgramming LanguagePythonAPIs UsedWikipedia, NewsAPI, Alpha VantageCore LibrariesPandas, NumPy (Data Management)Visualization LibrariesPlotly, Matplotlib (Interactive Dashboards)NLP/SentimentTextBlob (Sentiment Analysis)Development EnvironmentGoogle Colab 
+These counts are turned into a sentiment bar chart.
+
+Step 5 – Fetch Stock Market Data
+
+Using AlphaVantage API:
+
+TIME_SERIES_DAILY
+
+
+Extract:
+
+Date
+
+Closing price
+
+Displayed as:
+
+📈 Multi-company line graph (10 companies)
+
+Step 6 – Build Single Dashboard (Plotly Subplots)
+
+The entire dashboard uses 3 main graphs:
+
+(1) Stock Prices (Row 1)
+
+All 10 companies in one combined chart.
+
+(2) Google Trends (Row 2)
+
+Popularity changes over 90 days.
+
+(3) Sentiment Graph (Row 3)
+
+Positive / Negative / Neutral counts.
+
+Finally:
+fig.show()
+
+
+✔ Interactive
+✔ Zoom
+✔ Hover
+✔ Compare companies
+
+🖥️ 4. How The Dashboard is Displayed
+
+Plotly automatically generates:
+
+Interactive charts
+
+Legends
+
+Hover-to-view details
+
+Combined plots in a single screen
+
+Mobile-friendly interface
+
+Dashboard Sections:
+Section	Purpose
+Stock Price Graph	Shows company financial movement
+Trend Chart	Measures popularity/market attention
+Sentiment Chart	Shows public/media mood
+Wikipedia Summary	Gives profile of each company
+🧩 Summary in Simple Words
+
+Your system:
+
+✔ Collects data (News, Stocks, Wikipedia, Trends)
+✔ Uses AI to analyze market sentiment
+✔ Combines everything
+✔ Displays all companies in ONE professional dashboard
+✔ Shows financial, trend, and sentiment insights in the same screen
 
 Expand the dashboard with more KPIs (Key Performance Indicators) and advanced metric
